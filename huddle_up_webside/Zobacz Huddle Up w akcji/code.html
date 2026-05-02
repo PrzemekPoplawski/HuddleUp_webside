@@ -92,6 +92,12 @@
         },
       }
     </script>
+    <style>
+      .validation-error {
+        border: 1px solid #dc2626 !important;
+        box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.6);
+      }
+    </style>
 </head>
 <body class="bg-surface text-on-surface font-body antialiased flex flex-col min-h-screen">
 <!-- TopNavBar -->
@@ -124,7 +130,7 @@
 <section class="w-full bg-surface-container-lowest rounded-[1.5rem] p-6 md:p-10 shadow-[0_40px_80px_-20px_rgba(46,46,51,0.06)] relative z-20 mb-12 overflow-hidden">
 <!-- Decorative blur -->
 <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-container opacity-30 rounded-full blur-3xl pointer-events-none"></div>
-<form class="space-y-8 relative z-10">
+<form id="demoForm" class="space-y-8 relative z-10" novalidate>
 <!-- Input Fields Grid -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <!-- Company Name -->
@@ -159,16 +165,16 @@
 <!-- GDPR Consent -->
 <label class="flex items-start gap-4 cursor-pointer group">
 <div class="pt-1">
-<input class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" required="" type="checkbox"/>
+<input id="gdpr_consent" name="gdpr_consent" class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" required="" type="checkbox"/>
 </div>
 <span class="text-sm text-on-surface-variant leading-relaxed">Administratorem danych osobowych jest Przemysław Popławski. Dane są zbierane w celu pracy nad produktem. Podstawą przetwarzania danych jest uzasadniony interes administratora. Dane będą przechowywane przez okres niezbędny do realizacji wskazanych celów lub do momentu zgłoszenia sprzeciwu. Przysługuje Ci prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania oraz wniesienia sprzeciwu. <br/><span class="" style="color: rgb(31, 31, 31); font-family: Roboto, Arial, sans-serif; font-size: 14.6667px; white-space: pre-wrap;">Zapoznałem/am się z informacją o przetwarzaniu danych osobowych</span><span class="text-error">*</span></span>
 </label>
 <!-- Marketing Consent -->
 <label class="flex items-start gap-4 cursor-pointer group">
 <div class="pt-1">
-<input class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" required="" type="checkbox"/>
+<input id="marketing_consent" name="marketing_consent" class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" required="" type="checkbox"/>
 </div>
-<span class="text-sm text-on-surface-variant leading-relaxed">Wyrażam zgodę na otrzymywanie od Przemysława Popławskiego informacji marketingowych dotyczących produktów, usług oraz treści związanych z prowadzoną działalnością za pośrednictwem komunikacji elektronicznej lub telefonicznej (np. e-mail, social media lub numer telefonu).<span class="text-error">*</span></span>
+<span class="text-sm text-on-surface-variant leading-relaxed">Wyrażam zgodzę na otrzymywanie od Przemysława Popławskiego informacji marketingowych dotyczących produktów, usług oraz treści związanych z prowadzoną działalnością za pośrednictwem komunikacji elektronicznej lub telefonicznej (np. e-mail, social media lub numer telefonu).<span class="text-error">*</span></span>
 </label>
 </div>
 <!-- Submit Button -->
@@ -176,6 +182,58 @@
 <button class="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold font-headline text-lg rounded-full hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_20px_40px_-10px_rgba(115,44,219,0.3)]" type="submit">Wyślij</button>
 </div>
 </form>
+<script>
+  (function() {
+    const form = document.getElementById('demoForm');
+    const email = document.getElementById('email');
+    const gdprCheckbox = document.getElementById('gdpr_consent');
+    const marketingCheckbox = document.getElementById('marketing_consent');
+    const errorClass = 'validation-error';
+
+    function removeError(el) {
+      if (el) el.classList.remove(errorClass);
+    }
+
+    [email, gdprCheckbox, marketingCheckbox].forEach(el => {
+      if (!el) return;
+      el.addEventListener('input', () => removeError(el));
+      if (el.type === 'checkbox') {
+        el.addEventListener('change', () => removeError(el));
+      }
+    });
+
+    function validate() {
+      let valid = true;
+      if (!email.value.trim() || !email.checkValidity()) {
+        email.classList.add(errorClass);
+        valid = false;
+      }
+      if (!gdprCheckbox.checked) {
+        gdprCheckbox.classList.add(errorClass);
+        valid = false;
+      }
+      if (!marketingCheckbox.checked) {
+        marketingCheckbox.classList.add(errorClass);
+        valid = false;
+      }
+      if (!valid) {
+        const firstInvalid = form.querySelector('.' + errorClass);
+        if (firstInvalid && typeof firstInvalid.scrollIntoView === 'function') {
+          firstInvalid.scrollIntoView({behavior: 'smooth', block: 'center'});
+        }
+      }
+      return valid;
+    }
+
+    if (form) {
+      form.addEventListener('submit', function(event) {
+        if (!validate()) {
+          event.preventDefault();
+        }
+      });
+    }
+  })();
+</script>
 </section>
 </main>
 <!-- Footer -->
