@@ -97,6 +97,12 @@
         border: 1px solid #dc2626 !important;
         box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.6);
       }
+      html {
+        scroll-behavior: smooth;
+      }
+      #join-us {
+        scroll-margin-top: 6.5rem;
+      }
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body antialiased flex flex-col min-h-screen">
@@ -106,13 +112,13 @@
 <div class="flex items-center gap-12">
 <span class="text-2xl font-extrabold tracking-tighter text-[#732cdb] dark:text-[#d0bcff] font-headline">HuddleUp</span>
 </div><div class="hidden md:flex items-center gap-8 ml-8">
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Strona główna</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Co oferujemy</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Jak to działa</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Dlaczego teraz</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="../Landing page/code.html#top">Strona główna</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="../Landing page/code.html#co-oferujemy">Co oferujemy</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="../Landing page/code.html#jak-to-dziala">Jak to działa</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="../Landing page/code.html#dlaczego-teraz">Dlaczego teraz</a>
 </div>
 <div class="hidden md:flex items-center gap-4">
-<a class="font-headline font-bold tracking-tight bg-primary text-on-primary px-6 py-2.5 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-sm" href="#">Dołącz do nas !</a>
+<a class="font-headline font-bold tracking-tight bg-primary text-on-primary px-6 py-2.5 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-sm" href="../Landing page/code.html#join-us">Dołącz do nas !</a>
 </div>
 </div>
 </nav>
@@ -127,10 +133,12 @@
 <p class="text-lg text-on-surface-variant font-body">Zostaw nam swój kontakt, a odezwiemy się, aby umówić 30-minutowe demo, podczas którego pokażemy ci, jak działa Huddle Up, i odpowiemy na wszystkie Twoje pytania.</p>
 </div>
 <!-- Form Container -->
-<section class="w-full bg-surface-container-lowest rounded-[1.5rem] p-6 md:p-10 shadow-[0_40px_80px_-20px_rgba(46,46,51,0.06)] relative z-20 mb-12 overflow-hidden">
+<section id="join-us" class="w-full bg-surface-container-lowest rounded-[1.5rem] p-6 md:p-10 shadow-[0_40px_80px_-20px_rgba(46,46,51,0.06)] relative z-20 mb-12 overflow-hidden">
 <!-- Decorative blur -->
 <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-container opacity-30 rounded-full blur-3xl pointer-events-none"></div>
-<form id="demoForm" class="space-y-8 relative z-10" novalidate>
+<form id="demoForm" class="space-y-8 relative z-10" netlify novalidate>
+<input type="hidden" name="_to" value="przemyslawpoplawski.huddleup@gmail.com" />
+<input type="hidden" name="form-name" value="demoForm" />
 <!-- Input Fields Grid -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <!-- Company Name -->
