@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Huddle Up - Demo Request</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e2e2e9",
+                    "on-primary-fixed": "#000000",
+                    "on-tertiary-fixed": "#380014",
+                    "surface-container": "#e8e7ee",
+                    "on-primary": "#f9efff",
+                    "surface-variant": "#dddce4",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#732cdb",
+                    "on-secondary-container": "#564d69",
+                    "surface-tint": "#732cdb",
+                    "background": "#f7f6fb",
+                    "on-tertiary-fixed-variant": "#711134",
+                    "on-primary-container": "#2f006a",
+                    "inverse-primary": "#a675ff",
+                    "inverse-on-surface": "#9d9ca1",
+                    "surface": "#f7f6fb",
+                    "surface-container-low": "#f1f0f6",
+                    "on-surface-variant": "#5b5b60",
+                    "inverse-surface": "#0d0e12",
+                    "tertiary-fixed": "#ff8faa",
+                    "tertiary-container": "#ff8faa",
+                    "tertiary": "#9e3655",
+                    "surface-dim": "#d4d4dc",
+                    "error-dim": "#a70138",
+                    "on-secondary": "#f8f0ff",
+                    "primary-fixed": "#b48bff",
+                    "primary-dim": "#6617ce",
+                    "on-error": "#ffefef",
+                    "surface-bright": "#f7f6fb",
+                    "on-error-container": "#510017",
+                    "on-surface": "#2e2e33",
+                    "secondary-fixed": "#e9ddff",
+                    "on-primary-fixed-variant": "#3b0081",
+                    "secondary-container": "#e9ddff",
+                    "secondary-dim": "#544b67",
+                    "secondary": "#605773",
+                    "on-secondary-fixed": "#433b56",
+                    "primary-fixed-dim": "#a979ff",
+                    "surface-container-highest": "#dddce4",
+                    "on-tertiary-container": "#65042b",
+                    "on-background": "#2e2e33",
+                    "tertiary-fixed-dim": "#f87c9c",
+                    "tertiary-dim": "#8f2a49",
+                    "outline": "#76767b",
+                    "primary-container": "#b48bff",
+                    "on-secondary-fixed-variant": "#605773",
+                    "on-tertiary": "#ffeff0",
+                    "error": "#b41340",
+                    "secondary-fixed-dim": "#dbcff1",
+                    "outline-variant": "#adacb2",
+                    "error-container": "#f74b6d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "display": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body": [
+                            "Manrope"
+                    ],
+                    "label": [
+                            "Manrope"
+                    ]
+            },
+            "fontSize": {}
+    },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-[#f7f6fb]/80 backdrop-blur-xl dark:bg-[#1c1b1f]/80 sticky top-0 w-full z-50 bg-surface-container-low shadow-[0_20px_50px_rgba(46,46,51,0.05)]">
+<div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-extrabold tracking-tighter text-[#732cdb] dark:text-[#d0bcff] font-headline">HuddleUp</span>
+</div><div class="hidden md:flex items-center gap-8 ml-8">
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Strona główna</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Co oferujemy</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Jak to działa</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Dlaczego teraz</a>
+</div>
+<div class="hidden md:flex items-center gap-4">
+<a class="font-headline font-bold tracking-tight bg-primary text-on-primary px-6 py-2.5 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-sm" href="#">Dołącz do nas !</a>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-4xl mx-auto px-6 py-12 md:py-20 flex flex-col items-center">
+<!-- Header Section -->
+<div class="text-center mb-12 max-w-2xl relative">
+<button aria-label="Powrót" class="flex items-center w-10 h-10 rounded-full bg-surface-container-high text-primary hover:bg-surface-container-highest transition-all duration-300 group mb-12 md:-ml-16 md:absolute md:-left-20 md:top-0 justify-center">
+<span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+</button>
+<h1 class="text-4xl md:text-5xl font-display font-extrabold text-on-background mb-6 tracking-tight leading-tight">Zobacz <span class="text-primary font-headline font-extrabold">Huddle Up</span> w akcji!</h1>
+<p class="text-lg text-on-surface-variant font-body">Zostaw nam swój kontakt, a odezwiemy się, aby umówić 30-minutowe demo, podczas którego pokażemy ci, jak działa Huddle Up, i odpowiemy na wszystkie Twoje pytania.</p>
+</div>
+<!-- Form Container -->
+<section class="w-full bg-surface-container-lowest rounded-[1.5rem] p-6 md:p-10 shadow-[0_40px_80px_-20px_rgba(46,46,51,0.06)] relative z-20 mb-12 overflow-hidden">
+<!-- Decorative blur -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-container opacity-30 rounded-full blur-3xl pointer-events-none"></div>
+<form class="space-y-8 relative z-10">
+<!-- Input Fields Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Company Name -->
+<div class="space-y-2">
+<label class="block text-sm font-bold font-label text-on-surface-variant ml-1" for="company_name">Nazwa firmy</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="company_name" name="company_name" placeholder="Twoja firma" type="text"/>
+</div>
+<!-- Email (Required) -->
+<div class="space-y-2">
+<label class="block text-sm font-bold font-label text-on-surface-variant ml-1" for="email">E-mail <span class="text-error">*</span></label>
+<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="email" name="email" placeholder="jan@firma.pl" required="" type="email"/>
+</div>
+<!-- Phone Number -->
+<div class="space-y-2">
+<label class="block text-sm font-bold font-label text-on-surface-variant ml-1" for="phone">Numer telefonu</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="phone" name="phone" placeholder="+48 000 000 000" type="tel"/>
+</div>
+<!-- Employee Count -->
+<div class="space-y-2">
+<label class="block text-sm font-bold font-label text-on-surface-variant ml-1" for="employees">Liczba pracowników</label>
+<select class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow appearance-none" id="employees" name="employees">
+<option disabled="" selected="" value="">Wybierz przedział</option>
+<option value="1-10">1-10</option>
+<option value="11-50">11-50</option>
+<option value="51-200">51-200</option>
+<option value="201+">201+</option>
+</select>
+</div>
+</div>
+<!-- Consents Section -->
+<div class="space-y-6 pt-8 border-t border-surface-container-highest">
+<!-- GDPR Consent -->
+<label class="flex items-start gap-4 cursor-pointer group">
+<div class="pt-1">
+<input class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" required="" type="checkbox"/>
+</div>
+<span class="text-sm text-on-surface-variant leading-relaxed">Administratorem danych osobowych jest Przemysław Popławski. Dane są zbierane w celu pracy nad produktem. Podstawą przetwarzania danych jest uzasadniony interes administratora. Dane będą przechowywane przez okres niezbędny do realizacji wskazanych celów lub do momentu zgłoszenia sprzeciwu. Przysługuje Ci prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania oraz wniesienia sprzeciwu. <br/><span class="" style="color: rgb(31, 31, 31); font-family: Roboto, Arial, sans-serif; font-size: 14.6667px; white-space: pre-wrap;">Zapoznałem/am się z informacją o przetwarzaniu danych osobowych</span><span class="text-error">*</span></span>
+</label>
+<!-- Marketing Consent -->
+<label class="flex items-start gap-4 cursor-pointer group">
+<div class="pt-1">
+<input class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" required="" type="checkbox"/>
+</div>
+<span class="text-sm text-on-surface-variant leading-relaxed">Wyrażam zgodę na otrzymywanie od Przemysława Popławskiego informacji marketingowych dotyczących produktów, usług oraz treści związanych z prowadzoną działalnością za pośrednictwem komunikacji elektronicznej lub telefonicznej (np. e-mail, social media lub numer telefonu).<span class="text-error">*</span></span>
+</label>
+</div>
+<!-- Submit Button -->
+<div class="pt-8 flex justify-center">
+<button class="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold font-headline text-lg rounded-full hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_20px_40px_-10px_rgba(115,44,219,0.3)]" type="submit">Wyślij</button>
+</div>
+</form>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f7f6fb] dark:bg-[#1c1b1f] w-full py-12 px-8 bg-surface-container-low no-shadows mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-screen-2xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-xl font-bold text-[#732cdb] font-body">HuddleUp</span>
+<div class="flex flex-col items-center md:items-start gap-1 font-body text-sm text-[#732cdb] dark:text-[#d0bcff]">
+<a class="hover:underline font-bold" href="mailto:przemyslawpoplawski.huddleup@gmail.com"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-base">mail</span>przemyslawpoplawski.huddleup@gmail.com</span></a>
+<a class="hover:underline font-bold" href="tel:+48696986809"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-base">call</span>+48 696986809</span></a>
+</div>
+</div>
+<p class="font-body text-sm text-[#732cdb] dark:text-[#d0bcff]"><br/></p>
+<div class="flex items-center gap-6 font-body text-sm">
+<a class="text-[#2e2e33]/60 dark:text-[#e6e1e5]/60 hover:text-[#732cdb] transition-all opacity-80 hover:opacity-100" href="#"><br/></a>
+<a class="text-[#2e2e33]/60 dark:text-[#e6e1e5]/60 hover:text-[#732cdb] transition-all opacity-80 hover:opacity-100" href="#"><br/></a>
+<a class="text-[#2e2e33]/60 dark:text-[#e6e1e5]/60 hover:text-[#732cdb] transition-all opacity-80 hover:opacity-100" href="#"><br/></a>
+<a class="text-[#2e2e33]/60 dark:text-[#e6e1e5]/60 hover:text-[#732cdb] transition-all opacity-80 hover:opacity-100" href="#"><br/></a>
+</div>
+</div>
+</footer>
+</body></html>
