@@ -95,6 +95,9 @@
         .material-symbols-outlined {
           font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        html {
+          scroll-behavior: smooth;
+        }
         body { background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
       </style>
 </head>
@@ -105,10 +108,10 @@
 <div class="flex items-center gap-12">
 <span class="text-2xl font-extrabold tracking-tighter text-[#732cdb] dark:text-[#d0bcff] font-['Plus_Jakarta_Sans']">HuddleUp</span>
 </div><div class="hidden md:flex items-center gap-8 ml-8">
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Strona główna</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Co oferujemy</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Jak to działa</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Dlaczego teraz</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#top">Strona główna</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#co-oferujemy">Co oferujemy</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#jak-to-dziala">Jak to działa</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#dlaczego-teraz">Dlaczego teraz</a>
 </div>
 <div class="hidden md:flex items-center gap-4">
 <a class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight bg-primary text-on-primary px-6 py-2.5 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-sm" href="#">Dołącz do nas !</a>
@@ -117,7 +120,7 @@
 </nav>
 <main class="w-full max-w-screen-2xl mx-auto overflow-hidden">
 <!-- Hero Section -->
-<section class="relative pt-24 pb-32 px-8 lg:px-16 grid lg:grid-cols-2 gap-16 items-center">
+<section id="top" class="relative pt-24 pb-32 px-8 lg:px-16 grid lg:grid-cols-2 gap-16 items-center">
 <div class="relative z-10 flex flex-col items-start gap-8 max-w-2xl">
 <h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tighter text-on-surface leading-[1.1]">
                     Buduj społeczność <br>
@@ -141,7 +144,7 @@
 </div>
 </section>
 <!-- Co oferujemy (Bento Grid) -->
-<section class="py-24 px-8 lg:px-16">
+<section id="co-oferujemy" class="py-24 px-8 lg:px-16">
 <div class="mb-16">
 <h2 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface">Co oferujemy</h2>
 <p class="font-body text-on-surface-variant mt-4">Kompleksowe rozwiązanie dla firm, pracowników oraz instruktorów.</p>
@@ -180,7 +183,7 @@
 <p class="font-body text-on-surface-variant text-sm">Raporty i analizy zaangażowania pozwalające mierzyć realny wpływ na twoją organizację.</p>
 </div>
 </div>
-</section><section class="py-24 px-8 lg:px-16 bg-surface-container-low rounded-[3rem] mx-4 lg:mx-8 my-16">
+</section><section id="jak-to-dziala" class="py-24 px-8 lg:px-16 bg-surface-container-low rounded-[3rem] mx-4 lg:mx-8 my-16">
 <div class="max-w-screen-xl mx-auto">
 <div class="text-center mb-16">
 <h2 class="font-headline text-4xl lg:text-5xl font-extrabold tracking-tight text-on-surface">Jak to działa?</h2>
@@ -237,7 +240,7 @@
 <!-- Dlaczego teraz? (Asymmetric Layout) -->
 <!-- Wartość dla HR -->
 <!-- Contact Form Section -->
-<section class="py-24 px-8 lg:px-16 relative overflow-hidden">
+<section id="dlaczego-teraz" class="py-24 px-8 lg:px-16 relative overflow-hidden">
 <!-- Decorative Bubbles Background -->
 <div class="absolute top-20 left-10 w-32 h-32 bg-primary-container/10 rounded-full blur-xl animate-pulse"></div>
 <div class="absolute bottom-40 right-20 w-48 h-48 bg-secondary-container/15 rounded-full blur-2xl"></div>
