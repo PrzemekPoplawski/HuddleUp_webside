@@ -180,6 +180,7 @@
 <form id="instructorForm" class="space-y-8" netlify novalidate>
 <input type="hidden" name="_to" value="przemyslawpoplawski.huddleup@gmail.com" />
 <input type="hidden" name="form-name" value="instructorForm" />
+<input type="hidden" id="availabilityData" name="availability" value="" />
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <!-- Imię i Nazwisko -->
 <div class="space-y-2">
@@ -323,8 +324,25 @@ Dodaj kolejny termin
       form.addEventListener('submit', function(event) {
         if (!validate()) {
           event.preventDefault();
+          return;
+        }
+        const availabilityInput = document.getElementById('availabilityData');
+        if (availabilityInput) {
+          availabilityInput.value = serializeAvailability();
         }
       });
+    }
+
+    function serializeAvailability() {
+      const slots = availabilitySlots.querySelectorAll('[data-slot]');
+      const values = Array.from(slots).map(slot => {
+        const day = slot.querySelector('select[name^="day_"]');
+        const from = slot.querySelector('input[name^="time_from_"]');
+        const to = slot.querySelector('input[name^="time_to_"]');
+        if (!day || !from || !to) return null;
+        return `${day.value} ${from.value}-${to.value}`;
+      }).filter(Boolean);
+      return values.join('; ');
     }
 
     // Availability slots management
