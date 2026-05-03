@@ -320,15 +320,24 @@ Dodaj kolejny termin
       return valid;
     }
 
+    const availabilityInput = document.getElementById('availabilityData');
+
+    function updateAvailabilityField() {
+      if (availabilityInput) {
+        availabilityInput.value = serializeAvailability();
+      }
+    }
+
     if (form) {
       form.addEventListener('submit', function(event) {
+        updateAvailabilityField();
         if (!validate()) {
           event.preventDefault();
           return;
         }
-        const availabilityInput = document.getElementById('availabilityData');
         if (availabilityInput) {
-          availabilityInput.value = serializeAvailability();
+          const dynamicFields = availabilitySlots.querySelectorAll('select[name^="day_"], input[name^="time_from_"], input[name^="time_to_"]');
+          dynamicFields.forEach(field => field.removeAttribute('name'));
         }
       });
     }
@@ -343,6 +352,11 @@ Dodaj kolejny termin
         return `${day.value} ${from.value}-${to.value}`;
       }).filter(Boolean);
       return values.join('; ');
+    }
+
+    function attachSlotChangeHandlers(slot) {
+      const fields = slot.querySelectorAll('select, input[type="time"]');
+      fields.forEach(field => field.addEventListener('change', updateAvailabilityField));
     }
 
     // Availability slots management
@@ -406,6 +420,7 @@ Dodaj kolejny termin
       slotCount++;
       const newSlot = createSlot();
       availabilitySlots.appendChild(newSlot);
+      attachSlotChangeHandlers(newSlot);
       const deleteBtn = newSlot.querySelector('.delete-slot');
       if (deleteBtn) {
         attachDeleteHandler(deleteBtn);
@@ -413,7 +428,10 @@ Dodaj kolejny termin
       updateDeleteButtons();
     });
 
-    // Attach delete handlers to initial slot
+    // Attach delete handlers and change listeners to initial slot
+    availabilitySlots.querySelectorAll('[data-slot]').forEach(slot => {
+      attachSlotChangeHandlers(slot);
+    });
     document.querySelectorAll('.delete-slot').forEach(btn => {
       attachDeleteHandler(btn);
     });
