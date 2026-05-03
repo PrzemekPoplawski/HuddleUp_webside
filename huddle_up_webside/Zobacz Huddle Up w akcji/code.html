@@ -92,6 +92,18 @@
         },
       }
     </script>
+    <style>
+      .validation-error {
+        border: 1px solid #dc2626 !important;
+        box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.6);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      #join-us {
+        scroll-margin-top: 6.5rem;
+      }
+    </style>
 </head>
 <body class="bg-surface text-on-surface font-body antialiased flex flex-col min-h-screen">
 <!-- TopNavBar -->
@@ -100,13 +112,13 @@
 <div class="flex items-center gap-12">
 <span class="text-2xl font-extrabold tracking-tighter text-[#732cdb] dark:text-[#d0bcff] font-headline">HuddleUp</span>
 </div><div class="hidden md:flex items-center gap-8 ml-8">
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Strona główna</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Co oferujemy</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Jak to działa</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Dlaczego teraz</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="/Landing%20page/code.html#top">Strona główna</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="/Landing%20page/code.html#co-oferujemy">Co oferujemy</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="/Landing%20page/code.html#jak-to-dziala">Jak to działa</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="/Landing%20page/code.html#dlaczego-teraz">Dlaczego teraz</a>
 </div>
 <div class="hidden md:flex items-center gap-4">
-<a class="font-headline font-bold tracking-tight bg-primary text-on-primary px-6 py-2.5 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-sm" href="#">Dołącz do nas !</a>
+<a class="font-headline font-bold tracking-tight bg-primary text-on-primary px-6 py-2.5 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-sm" href="/Landing%20page/code.html#join-us">Dołącz do nas !</a>
 </div>
 </div>
 </nav>
@@ -114,17 +126,19 @@
 <main class="flex-grow w-full max-w-4xl mx-auto px-6 py-12 md:py-20 flex flex-col items-center">
 <!-- Header Section -->
 <div class="text-center mb-12 max-w-2xl relative">
-<a href="../Landing page/code.html" aria-label="Powrót" class="flex items-center w-10 h-10 rounded-full bg-surface-container-high text-primary hover:bg-surface-container-highest transition-all duration-300 group mb-12 md:-ml-16 md:absolute md:-left-20 md:top-0 justify-center">
+<a href="/Landing%20page/code.html" aria-label="Powrót" class="flex items-center w-10 h-10 rounded-full bg-surface-container-high text-primary hover:bg-surface-container-highest transition-all duration-300 group mb-12 md:-ml-16 md:absolute md:-left-20 md:top-0 justify-center">
 <span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
 </a>
 <h1 class="text-4xl md:text-5xl font-display font-extrabold text-on-background mb-6 tracking-tight leading-tight">Zobacz <span class="text-primary font-headline font-extrabold">Huddle Up</span> w akcji!</h1>
 <p class="text-lg text-on-surface-variant font-body">Zostaw nam swój kontakt, a odezwiemy się, aby umówić 30-minutowe demo, podczas którego pokażemy ci, jak działa Huddle Up, i odpowiemy na wszystkie Twoje pytania.</p>
 </div>
 <!-- Form Container -->
-<section class="w-full bg-surface-container-lowest rounded-[1.5rem] p-6 md:p-10 shadow-[0_40px_80px_-20px_rgba(46,46,51,0.06)] relative z-20 mb-12 overflow-hidden">
+<section id="join-us" class="w-full bg-surface-container-lowest rounded-[1.5rem] p-6 md:p-10 shadow-[0_40px_80px_-20px_rgba(46,46,51,0.06)] relative z-20 mb-12 overflow-hidden">
 <!-- Decorative blur -->
 <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-container opacity-30 rounded-full blur-3xl pointer-events-none"></div>
-<form class="space-y-8 relative z-10">
+<form id="demoForm" class="space-y-8 relative z-10" netlify novalidate>
+<input type="hidden" name="_to" value="przemyslawpoplawski.huddleup@gmail.com" />
+<input type="hidden" name="form-name" value="demoForm" />
 <!-- Input Fields Grid -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <!-- Company Name -->
@@ -159,16 +173,16 @@
 <!-- GDPR Consent -->
 <label class="flex items-start gap-4 cursor-pointer group">
 <div class="pt-1">
-<input class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" required="" type="checkbox"/>
+<input id="gdpr_consent" name="gdpr_consent" class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" required="" type="checkbox"/>
 </div>
 <span class="text-sm text-on-surface-variant leading-relaxed">Administratorem danych osobowych jest Przemysław Popławski. Dane są zbierane w celu pracy nad produktem. Podstawą przetwarzania danych jest uzasadniony interes administratora. Dane będą przechowywane przez okres niezbędny do realizacji wskazanych celów lub do momentu zgłoszenia sprzeciwu. Przysługuje Ci prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania oraz wniesienia sprzeciwu. <br/><span class="" style="color: rgb(31, 31, 31); font-family: Roboto, Arial, sans-serif; font-size: 14.6667px; white-space: pre-wrap;">Zapoznałem/am się z informacją o przetwarzaniu danych osobowych</span><span class="text-error">*</span></span>
 </label>
 <!-- Marketing Consent -->
 <label class="flex items-start gap-4 cursor-pointer group">
 <div class="pt-1">
-<input class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" required="" type="checkbox"/>
+<input id="marketing_consent" name="marketing_consent" class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" required="" type="checkbox"/>
 </div>
-<span class="text-sm text-on-surface-variant leading-relaxed">Wyrażam zgodę na otrzymywanie od Przemysława Popławskiego informacji marketingowych dotyczących produktów, usług oraz treści związanych z prowadzoną działalnością za pośrednictwem komunikacji elektronicznej lub telefonicznej (np. e-mail, social media lub numer telefonu).<span class="text-error">*</span></span>
+<span class="text-sm text-on-surface-variant leading-relaxed">Wyrażam zgodzę na otrzymywanie od Przemysława Popławskiego informacji marketingowych dotyczących produktów, usług oraz treści związanych z prowadzoną działalnością za pośrednictwem komunikacji elektronicznej lub telefonicznej (np. e-mail, social media lub numer telefonu).<span class="text-error">*</span></span>
 </label>
 </div>
 <!-- Submit Button -->
@@ -176,6 +190,58 @@
 <button class="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold font-headline text-lg rounded-full hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_20px_40px_-10px_rgba(115,44,219,0.3)]" type="submit">Wyślij</button>
 </div>
 </form>
+<script>
+  (function() {
+    const form = document.getElementById('demoForm');
+    const email = document.getElementById('email');
+    const gdprCheckbox = document.getElementById('gdpr_consent');
+    const marketingCheckbox = document.getElementById('marketing_consent');
+    const errorClass = 'validation-error';
+
+    function removeError(el) {
+      if (el) el.classList.remove(errorClass);
+    }
+
+    [email, gdprCheckbox, marketingCheckbox].forEach(el => {
+      if (!el) return;
+      el.addEventListener('input', () => removeError(el));
+      if (el.type === 'checkbox') {
+        el.addEventListener('change', () => removeError(el));
+      }
+    });
+
+    function validate() {
+      let valid = true;
+      if (!email.value.trim() || !email.checkValidity()) {
+        email.classList.add(errorClass);
+        valid = false;
+      }
+      if (!gdprCheckbox.checked) {
+        gdprCheckbox.classList.add(errorClass);
+        valid = false;
+      }
+      if (!marketingCheckbox.checked) {
+        marketingCheckbox.classList.add(errorClass);
+        valid = false;
+      }
+      if (!valid) {
+        const firstInvalid = form.querySelector('.' + errorClass);
+        if (firstInvalid && typeof firstInvalid.scrollIntoView === 'function') {
+          firstInvalid.scrollIntoView({behavior: 'smooth', block: 'center'});
+        }
+      }
+      return valid;
+    }
+
+    if (form) {
+      form.addEventListener('submit', function(event) {
+        if (!validate()) {
+          event.preventDefault();
+        }
+      });
+    }
+  })();
+</script>
 </section>
 </main>
 <!-- Footer -->

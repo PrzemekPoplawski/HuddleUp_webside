@@ -97,6 +97,16 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
         }
+        .validation-error {
+            border: 1px solid #dc2626 !important;
+            box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.6);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        #join-us {
+            scroll-margin-top: 6.5rem;
+        }
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body antialiased min-h-screen pb-24 md:pb-0">
@@ -106,20 +116,20 @@
 <div class="flex items-center gap-12">
 <span class="text-2xl font-extrabold tracking-tighter text-[#732cdb] dark:text-[#d0bcff] font-headline">HuddleUp</span>
 </div><div class="hidden md:flex items-center gap-8 ml-8">
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Strona główna</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Co oferujemy</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Jak to działa</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Dlaczego teraz</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="/Landing%20page/code.html#top">Strona główna</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="/Landing%20page/code.html#co-oferujemy">Co oferujemy</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="/Landing%20page/code.html#jak-to-dziala">Jak to działa</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="/Landing%20page/code.html#dlaczego-teraz">Dlaczego teraz</a>
 </div>
 <div class="hidden md:flex items-center gap-4">
-<a class="font-headline font-bold tracking-tight bg-primary text-on-primary px-6 py-2.5 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-sm" href="#">Dołącz do nas !</a>
+<a class="font-headline font-bold tracking-tight bg-primary text-on-primary px-6 py-2.5 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-sm" href="/Landing%20page/code.html#join-us">Dołącz do nas !</a>
 </div>
 </div>
 </nav>
 <main class="pt-12 px-4 md:px-8 max-w-4xl mx-auto">
 <!-- Hero Section -->
 <section class="mb-12 relative">
-<a href="../Landing page/code.html" aria-label="Powrót" class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-high text-primary hover:bg-surface-container-highest transition-all duration-300 group mb-12">
+<a href="/Landing%20page/code.html" aria-label="Powrót" class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-high text-primary hover:bg-surface-container-highest transition-all duration-300 group mb-12">
    <span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
    </a><h1 class="text-4xl md:text-5xl font-display font-extrabold text-on-background mb-6 tracking-tight leading-tight">Prowadź dedykowane zajęcia dla pracowników firm</h1>
 <p class="text-lg md:text-xl font-body text-on-surface-variant leading-relaxed max-w-3xl relative z-10">Obecnie budujemy bazę zajęć w naszym systemie i zapraszamy instruktorów do współpracy.&nbsp;</p><div class="text-lg md:text-xl font-body text-on-surface-variant leading-relaxed max-w-3xl relative z-10">Wypełnij krótką ankietę i zostaw nam informacje o zajęciach, które chciałbyś/chciałabyś prowadzić.&nbsp;<div>Dodawanie ofert nic nie kosztuje — możesz dodać ich tyle, ile chcesz</div></div><p class=""></p>
@@ -166,41 +176,43 @@
 </div>
 </div>
 </div>
-</section><section class="bg-surface-container-lowest rounded-[1.5rem] p-6 md:p-10 shadow-[0_40px_80px_-20px_rgba(46,46,51,0.06)] relative z-20 mb-12">
-<form class="space-y-8">
+</section><section id="join-us" class="bg-surface-container-lowest rounded-[1.5rem] p-6 md:p-10 shadow-[0_40px_80px_-20px_rgba(46,46,51,0.06)] relative z-20 mb-12">
+<form id="instructorForm" class="space-y-8" netlify novalidate>
+<input type="hidden" name="_to" value="przemyslawpoplawski.huddleup@gmail.com" />
+<input type="hidden" name="form-name" value="instructorForm" />
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <!-- Imię i Nazwisko -->
 <div class="space-y-2">
 <label class="block text-sm font-bold font-label text-on-surface-variant ml-1" for="fullName">Imię i Nazwisko</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="fullName" placeholder="Jan Kowalski" type="text">
+<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="fullName" name="fullName" placeholder="Jan Kowalski" type="text">
 </div>
 <!-- E-mail -->
 <div class="space-y-2">
 <label class="block text-sm font-bold font-label text-on-surface-variant ml-1" for="email">E-mail <span class="text-error">*</span></label>
-<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="email" placeholder="jan@example.com" type="email">
+<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="email" name="email" placeholder="jan@example.com" type="email">
 </div>
 <!-- Telefon -->
 <div class="space-y-2">
 <label class="block text-sm font-bold font-label text-on-surface-variant ml-1" for="phone">Telefon</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="phone" placeholder="+48 000 000 000" type="tel">
+<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="phone" name="phone" placeholder="+48 000 000 000" type="tel">
 </div>
 <!-- Social Media -->
 <div class="space-y-2">
 <label class="block text-sm font-bold font-label text-on-surface-variant ml-1" for="social">Social Media (Link)</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="social" placeholder="np. Instagram, Facebook" type="url">
+<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="social" name="social" placeholder="np. Instagram, Facebook" type="url">
 </div>
 </div>
 <!-- Nazwa i opis zajęć -->
 <div class="space-y-2 pt-4">
 <label class="block text-sm font-bold font-label text-on-surface-variant ml-1" for="description">Nazwa i opis zajęć</label>
-<textarea class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow resize-none" id="description" placeholder="Opisz krótko, jakie zajęcia chcesz prowadzić..." rows="4"></textarea>
+<textarea class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow resize-none" id="description" name="description" placeholder="Opisz krótko, jakie zajęcia chcesz prowadzić..." rows="4"></textarea>
 </div>
 <!-- Dostępność -->
 <div class="space-y-4 pt-4 bg-surface-container-low rounded-xl p-6">
 <h3 class="text-base font-bold font-headline text-on-background mb-4">Dostępność dni i godzin</h3>
-<div class="space-y-4">
-<div class="flex flex-col md:flex-row md:items-center gap-4">
-<select class="w-full md:w-48 bg-surface-container-lowest border-none rounded-md py-2 px-3 text-sm focus:ring-2 focus:ring-primary text-on-surface appearance-none">
+<div class="space-y-4" id="availabilitySlots">
+<div class="flex flex-col md:flex-row md:items-center gap-4" data-slot="0">
+<select class="w-full md:w-48 bg-surface-container-lowest border-none rounded-md py-2 px-3 text-sm focus:ring-2 focus:ring-primary text-on-surface appearance-none" name="day_0">
 <option>Poniedziałek</option>
 <option>Wtorek</option>
 <option>Środa</option>
@@ -210,29 +222,29 @@
 <option>Niedziela</option>
 </select>
 <div class="flex items-center gap-2 flex-1">
-<input class="bg-surface-container-lowest border-none rounded-md py-2 px-3 text-sm focus:ring-2 focus:ring-primary text-on-surface w-full md:w-auto" type="time">
+<input class="bg-surface-container-lowest border-none rounded-md py-2 px-3 text-sm focus:ring-2 focus:ring-primary text-on-surface w-full md:w-auto" name="time_from_0" type="time">
 <span class="text-on-surface-variant">-</span>
-<input class="bg-surface-container-lowest border-none rounded-md py-2 px-3 text-sm focus:ring-2 focus:ring-primary text-on-surface w-full md:w-auto" type="time">
+<input class="bg-surface-container-lowest border-none rounded-md py-2 px-3 text-sm focus:ring-2 focus:ring-primary text-on-surface w-full md:w-auto" name="time_to_0" type="time">
 </div>
-<button class="text-on-surface-variant hover:text-error transition-colors p-2 flex items-center justify-center rounded-full hover:bg-surface-container-lowest" type="button">
+<button class="delete-slot text-on-surface-variant hover:text-error transition-colors p-2 flex items-center justify-center rounded-full hover:bg-surface-container-lowest hidden" type="button">
 <span class="material-symbols-outlined text-xl">delete</span>
 </button>
 </div>
-<button class="flex items-center gap-2 text-sm font-bold font-label text-primary hover:text-primary-dim transition-colors mt-2" type="button">
+</div>
+<button class="flex items-center gap-2 text-sm font-bold font-label text-primary hover:text-primary-dim transition-colors mt-2" id="addTermButton" type="button">
 <span class="material-symbols-outlined text-xl">add</span>
 Dodaj kolejny termin
 </button>
-</div>
 </div>
 <!-- Finanse -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
 <div class="space-y-2">
 <label class="block text-sm font-bold font-label text-on-surface-variant ml-1" for="rate">Stawka za zajęcia (PLN netto)</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="rate" placeholder="np. 150" type="number">
+<input class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow" id="rate" name="rate" placeholder="np. 150" type="number">
 </div>
 <div class="space-y-2">
 <label class="block text-sm font-bold font-label text-on-surface-variant ml-1" for="vat">Stawka VAT</label>
-<select class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow appearance-none" id="vat">
+<select class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow appearance-none" id="vat" name="vat">
 <option>Zwolniony z VAT</option>
 <option>23%</option>
 <option>8%</option>
@@ -244,26 +256,153 @@ Dodaj kolejny termin
 <div class="space-y-6 pt-8 border-t border-surface-container-highest">
 <label class="flex items-start gap-4 cursor-pointer group">
 <div class="pt-1">
-<input class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" type="checkbox">
+<input id="gdpr_consent" name="gdpr_consent" class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" type="checkbox">
 </div>
 <span class="text-sm text-on-surface-variant leading-relaxed">
                             Administratorem danych osobowych jest Przemysław Popławski. Dane są zbierane w celu pracy nad produktem. Podstawą przetwarzania danych jest uzasadniony interes administratora. Dane będą przechowywane przez okres niezbędny do realizacji wskazanych celów lub do momentu zgłoszenia sprzeciwu. Przysługuje Ci prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania oraz wniesienia sprzeciwu.&nbsp;<br><span class="" style="color: rgb(31, 31, 31); font-family: Roboto, Arial, sans-serif; font-size: 14.6667px; white-space: pre-wrap;">Zapoznałem/am się z informacją o przetwarzaniu danych osobowych</span><span class="text-error">*</span></span>
 </label>
 <label class="flex items-start gap-4 cursor-pointer group">
 <div class="pt-1">
-<input class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" type="checkbox">
+<input id="marketing_consent" name="marketing_consent" class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" type="checkbox">
 </div>
 <span class="text-sm text-on-surface-variant leading-relaxed">Wyrażam zgodę na otrzymywanie od Przemysława Popławskiego informacji marketingowych dotyczących produktów, usług oraz treści związanych z prowadzoną działalnością za pośrednictwem komunikacji elektronicznej lub telefonicznej (np. e-mail, social media lub numer telefonu).<span class="text-error">*</span></span>
 </label>
 </div>
 <!-- Submit -->
 <div class="pt-8">
-<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold font-headline text-lg py-5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_20px_40px_-10px_rgba(115,44,219,0.3)]" type="button">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold font-headline text-lg py-5 rounded-full hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_20px_40px_-10px_rgba(115,44,219,0.3)]" type="submit">
                         Wyślij
                     </button>
 </div>
 </form>
 </section>
+<script>
+  (function() {
+    const form = document.getElementById('instructorForm');
+    const email = document.getElementById('email');
+    const gdprCheckbox = document.getElementById('gdpr_consent');
+    const marketingCheckbox = document.getElementById('marketing_consent');
+    const errorClass = 'validation-error';
+
+    function removeError(el) {
+      if (el) el.classList.remove(errorClass);
+    }
+
+    [email, gdprCheckbox, marketingCheckbox].forEach(el => {
+      if (!el) return;
+      el.addEventListener('input', () => removeError(el));
+      if (el.type === 'checkbox') {
+        el.addEventListener('change', () => removeError(el));
+      }
+    });
+
+    function validate() {
+      let valid = true;
+      if (!email.value.trim() || !email.checkValidity()) {
+        email.classList.add(errorClass);
+        valid = false;
+      }
+      if (!gdprCheckbox.checked) {
+        gdprCheckbox.classList.add(errorClass);
+        valid = false;
+      }
+      if (!marketingCheckbox.checked) {
+        marketingCheckbox.classList.add(errorClass);
+        valid = false;
+      }
+      if (!valid) {
+        const firstInvalid = form.querySelector('.' + errorClass);
+        if (firstInvalid && typeof firstInvalid.scrollIntoView === 'function') {
+          firstInvalid.scrollIntoView({behavior: 'smooth', block: 'center'});
+        }
+      }
+      return valid;
+    }
+
+    if (form) {
+      form.addEventListener('submit', function(event) {
+        if (!validate()) {
+          event.preventDefault();
+        }
+      });
+    }
+
+    // Availability slots management
+    const availabilitySlots = document.getElementById('availabilitySlots');
+    const addTermButton = document.getElementById('addTermButton');
+    let slotCount = 1;
+
+    function createSlot() {
+      const slot = document.createElement('div');
+      slot.className = 'flex flex-col md:flex-row md:items-center gap-4';
+      slot.dataset.slot = slotCount;
+      slot.innerHTML = `
+        <select class="w-full md:w-48 bg-surface-container-lowest border-none rounded-md py-2 px-3 text-sm focus:ring-2 focus:ring-primary text-on-surface appearance-none" name="day_${slotCount}">
+          <option>Poniedziałek</option>
+          <option>Wtorek</option>
+          <option>Środa</option>
+          <option>Czwartek</option>
+          <option>Piątek</option>
+          <option>Sobota</option>
+          <option>Niedziela</option>
+        </select>
+        <div class="flex items-center gap-2 flex-1">
+          <input class="bg-surface-container-lowest border-none rounded-md py-2 px-3 text-sm focus:ring-2 focus:ring-primary text-on-surface w-full md:w-auto" name="time_from_${slotCount}" type="time">
+          <span class="text-on-surface-variant">-</span>
+          <input class="bg-surface-container-lowest border-none rounded-md py-2 px-3 text-sm focus:ring-2 focus:ring-primary text-on-surface w-full md:w-auto" name="time_to_${slotCount}" type="time">
+        </div>
+        <button class="delete-slot text-on-surface-variant hover:text-error transition-colors p-2 flex items-center justify-center rounded-full hover:bg-surface-container-lowest" type="button">
+          <span class="material-symbols-outlined text-xl">delete</span>
+        </button>
+      `;
+      return slot;
+    }
+
+    function updateDeleteButtons() {
+      const slots = availabilitySlots.querySelectorAll('[data-slot]');
+      slots.forEach((slot, index) => {
+        const deleteBtn = slot.querySelector('.delete-slot');
+        if (deleteBtn) {
+          if (index === 0) {
+            deleteBtn.classList.add('hidden');
+          } else {
+            deleteBtn.classList.remove('hidden');
+          }
+        }
+      });
+    }
+
+    function attachDeleteHandler(btn) {
+      btn.addEventListener('click', function(event) {
+        event.preventDefault();
+        const slot = btn.closest('[data-slot]');
+        if (slot) {
+          slot.remove();
+          updateDeleteButtons();
+        }
+      });
+    }
+
+    addTermButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      slotCount++;
+      const newSlot = createSlot();
+      availabilitySlots.appendChild(newSlot);
+      const deleteBtn = newSlot.querySelector('.delete-slot');
+      if (deleteBtn) {
+        attachDeleteHandler(deleteBtn);
+      }
+      updateDeleteButtons();
+    });
+
+    // Attach delete handlers to initial slot
+    document.querySelectorAll('.delete-slot').forEach(btn => {
+      attachDeleteHandler(btn);
+    });
+
+    updateDeleteButtons();
+  })();
+</script>
 </main>
 <!-- Footer -->
 <footer class="bg-[#f7f6fb] dark:bg-[#1c1b1f] w-full py-12 px-8 bg-surface-container-low no-shadows">

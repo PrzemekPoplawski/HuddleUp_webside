@@ -95,6 +95,15 @@
         .material-symbols-outlined {
           font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        html {
+          scroll-behavior: smooth;
+        }
+        #co-oferujemy,
+        #jak-to-dziala,
+        #dlaczego-teraz,
+        #join-us {
+          scroll-margin-top: 6.5rem;
+        }
         body { background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
       </style>
 </head>
@@ -105,19 +114,19 @@
 <div class="flex items-center gap-12">
 <span class="text-2xl font-extrabold tracking-tighter text-[#732cdb] dark:text-[#d0bcff] font-['Plus_Jakarta_Sans']">HuddleUp</span>
 </div><div class="hidden md:flex items-center gap-8 ml-8">
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Strona główna</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Co oferujemy</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Jak to działa</a>
-<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Dlaczego teraz</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#top">Strona główna</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#co-oferujemy">Co oferujemy</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#jak-to-dziala">Jak to działa</a>
+<a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="#dlaczego-teraz">Dlaczego teraz</a>
 </div>
 <div class="hidden md:flex items-center gap-4">
-<a class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight bg-primary text-on-primary px-6 py-2.5 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-sm" href="#">Dołącz do nas !</a>
+<a class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight bg-primary text-on-primary px-6 py-2.5 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-sm" href="#join-us">Dołącz do nas !</a>
 </div>
 </div>
 </nav>
 <main class="w-full max-w-screen-2xl mx-auto overflow-hidden">
 <!-- Hero Section -->
-<section class="relative pt-24 pb-32 px-8 lg:px-16 grid lg:grid-cols-2 gap-16 items-center">
+<section id="top" class="relative pt-24 pb-32 px-8 lg:px-16 grid lg:grid-cols-2 gap-16 items-center">
 <div class="relative z-10 flex flex-col items-start gap-8 max-w-2xl">
 <h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tighter text-on-surface leading-[1.1]">
                     Buduj społeczność <br>
@@ -141,7 +150,7 @@
 </div>
 </section>
 <!-- Co oferujemy (Bento Grid) -->
-<section class="py-24 px-8 lg:px-16">
+<section id="co-oferujemy" class="py-24 px-8 lg:px-16">
 <div class="mb-16">
 <h2 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface">Co oferujemy</h2>
 <p class="font-body text-on-surface-variant mt-4">Kompleksowe rozwiązanie dla firm, pracowników oraz instruktorów.</p>
@@ -180,7 +189,7 @@
 <p class="font-body text-on-surface-variant text-sm">Raporty i analizy zaangażowania pozwalające mierzyć realny wpływ na twoją organizację.</p>
 </div>
 </div>
-</section><section class="py-24 px-8 lg:px-16 bg-surface-container-low rounded-[3rem] mx-4 lg:mx-8 my-16">
+</section><section id="jak-to-dziala" class="py-24 px-8 lg:px-16 bg-surface-container-low rounded-[3rem] mx-4 lg:mx-8 my-16">
 <div class="max-w-screen-xl mx-auto">
 <div class="text-center mb-16">
 <h2 class="font-headline text-4xl lg:text-5xl font-extrabold tracking-tight text-on-surface">Jak to działa?</h2>
@@ -237,7 +246,7 @@
 <!-- Dlaczego teraz? (Asymmetric Layout) -->
 <!-- Wartość dla HR -->
 <!-- Contact Form Section -->
-<section class="py-24 px-8 lg:px-16 relative overflow-hidden">
+<section id="dlaczego-teraz" class="py-24 px-8 lg:px-16 relative overflow-hidden">
 <!-- Decorative Bubbles Background -->
 <div class="absolute top-20 left-10 w-32 h-32 bg-primary-container/10 rounded-full blur-xl animate-pulse"></div>
 <div class="absolute bottom-40 right-20 w-48 h-48 bg-secondary-container/15 rounded-full blur-2xl"></div>
@@ -248,8 +257,7 @@
 <div class="bg-secondary-container/30 backdrop-blur-xl p-10 lg:p-14 rounded-[4rem] rounded-tr-[1rem] shadow-[0_40px_80px_rgba(115,44,219,0.05)] border border-white/20 hover:scale-[1.02] transition-transform duration-500">
 <h2 class="font-headline text-3xl lg:text-4xl font-extrabold text-on-surface mb-6 tracking-tight">Dlaczego teraz?</h2>
 <div class="space-y-6">
-<p class="font-body text-lg text-on-surface-variant leading-relaxed">W erze pracy zdalnej relacje w zespołach słabną, a poczucie przynależności do organizacji maleje. Pracownicy znają się i utrzymują kontakty jedynie w swoim wąskim gronie projektowym lub zespołowym. Wiele osób chce rozpocząć nowe aktywności, jednak samotny start oraz anonimowe grupy zniechęcają, przez co trudno zacząć i utrzymać regularność.</p><div class="">Dlatego łączymy doświadczonych instruktorów, firmy oraz ich pracowników w małe, prywatne, regularnie spotykające się grupy, przełamując anonimowość w organizacjach, budując relacje między współpracownikami i pomagając zamieniać dobre chęci w nowe pasje.</div><p class=""></p>
-<p class="font-body text-lg font-bold text-primary leading-relaxed"><br></p>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed">W erze pracy zdalnej relacje w zespołach słabną, a poczucie przynależności do organizacji maleje. Pracownicy znają się i utrzymują kontakty jedynie w swoim wąskim gronie projektowym lub zespołowym. Wiele osób chce rozpocząć nowe aktywności, jednak samotny start oraz anonimowe grupy zniechęcają, przez co trudno zacząć i utrzymać regularność.</p><div class="font-body text-lg text-on-surface-variant leading-relaxed font-bold">Dlatego łączymy doświadczonych instruktorów, firmy oraz ich pracowników w małe, prywatne, regularnie spotykające się grupy, przełamując anonimowość w organizacjach, budując relacje między współpracownikami i pomagając zamieniać dobre chęci w nowe pasje.</div><p class=""></p>
 </div>
 </div>
 <!-- Bubble 2: 74% Statistic -->
@@ -266,7 +274,7 @@
 </div>
 </div>
 </section>
-<section class="py-32 px-8 lg:px-16 bg-surface-container-low mt-16 relative">
+<section id="join-us" class="py-32 px-8 lg:px-16 bg-surface-container-low mt-16 mb-16 rounded-[3rem] mx-4 lg:mx-8 relative">
 <div class="max-w-6xl mx-auto space-y-16 relative z-10">
 <div class="text-center space-y-4">
 <h2 class="font-headline font-extrabold text-on-surface tracking-tight text-5xl lg:text-7xl">Dołącz do nas ! </h2>
@@ -295,7 +303,7 @@
 <span class="font-body text-on-surface-variant">Profesjonalne wsparcie logistyczne i technologiczne</span>
 </li>
 </ul>
-<a class="inline-flex items-center justify-center gap-2 w-full bg-primary text-on-primary font-headline font-bold py-4 px-8 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-md" href="../Prowadz dedykowane zajęcia/code.html">Dowiedz się wiecej<br><span class="material-symbols-outlined">arrow_forward</span>
+<a class="inline-flex items-center justify-center gap-2 w-full bg-primary text-on-primary font-headline font-bold py-4 px-8 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-md" href="/Prowadz%20dedykowane%20zajecia/code.html">Dowiedz się wiecej<br><span class="material-symbols-outlined">arrow_forward</span>
 </a>
 </div>
 <!-- Right Card -->
@@ -306,7 +314,7 @@
 <h3 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface mb-6 leading-tight">Chcesz zobaczyć HuddleUp w akcji?</h3>
 <p class="font-body text-on-surface-variant mb-8">Umów się z nami na krótką prezentację demo i skonfiguruj przykładowy cykl w dowolnym budżecie, aby sprawdzić, jak możemy wzmocnić kulturę Twojej organizacji.</p>
 <div class="rounded-xl overflow-hidden mb-12 flex-grow border border-surface-container-high min-h-[200px] flex items-center justify-center relative"><img alt="HuddleUp professional team" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfXTval4LD0cxjafIGwYTQuK1-G6_mZvxEl2iGTezuKu6X3VQQCC758fy9ysQCfExwMR5OVHvn695D8dceBpaUF0mnq7U-oerVmyFSQoatS45BJqGz3a6bti4WloyEj0kQ3-PDM_UUSh9f649sBUDspRun-sLYNauI783qT5enP-9cQWueIfw8jjxM_8-AjjoJOIVJ6srOVNn6iIKWUYL6rkwrvR6OW3io1eZQfHDlgOSnunx7hMiQ8efNWE_e8AjROrR6UXG7g_I"></div>
-<a class="inline-flex items-center justify-center gap-2 w-full bg-primary text-on-primary font-headline font-bold py-4 px-8 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-md" href="../Zobacz Huddle Up w akcji/code.html">
+<a class="inline-flex items-center justify-center gap-2 w-full bg-primary text-on-primary font-headline font-bold py-4 px-8 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-md" href="/Zobacz%20Huddle%20Up%20w%20akcji/code.html">
 Dowiedz się wiecej<span class="material-symbols-outlined">arrow_forward</span>
 </a>
 </div>
