@@ -1,0 +1,9 @@
+/landing /Landing%20page/code.html 200
+/landing/ /Landing%20page/code.html 200
+/prowadz-zajecia /Prowadz%20dedykowane%20zajecia/code.html 200
+/prowadz-zajecia/ /Prowadz%20dedykowane%20zajecia/code.html 200
+/demo /Zobacz%20Huddle%20Up%20w%20akcji/code.html 200
+/demo/ /Zobacz%20Huddle%20Up%20w%20akcji/code.html 200
+/Landing%20page/code.html /landing 301
+/Prowadz%20dedykowane%20zajecia/code.html /prowadz-zajecia 301
+/Zobacz%20Huddle%20Up%20w%20akcji/code.html /demo 301
