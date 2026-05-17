@@ -1,2 +1,8 @@
 [build]
   publish = "huddle_up_webside"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Netlify-CDN-Cache-Control = "public, max-age=31536000, must-revalidate"
