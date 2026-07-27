@@ -3,7 +3,7 @@
 <html class="light" lang="pl"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Huddle Up - Demo Request</title>
+<title>HuddleUp - Demo Request</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -118,7 +118,7 @@
 <a class="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors duration-300" href="/landing#dlaczego-teraz">Dlaczego teraz</a>
 </div>
 <div class="hidden md:flex items-center gap-4">
-<a class="font-headline font-bold tracking-tight bg-primary text-on-primary px-6 py-2.5 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-sm" href="/landing#join-us">Dołącz do nas !</a>
+<a class="font-headline font-bold tracking-tight bg-primary text-on-primary px-6 py-2.5 rounded-full hover:bg-primary-dim transition-colors duration-300 shadow-sm" href="/landing#join-us">Dołącz do nas!</a>
 </div>
 </div>
 </nav>
@@ -129,8 +129,8 @@
 <a href="/landing" aria-label="Powrót" class="flex items-center w-10 h-10 rounded-full bg-surface-container-high text-primary hover:bg-surface-container-highest transition-all duration-300 group mb-12 md:-ml-16 md:absolute md:-left-20 md:top-0 justify-center">
 <span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
 </a>
-<h1 class="text-4xl md:text-5xl font-display font-extrabold text-on-background mb-6 tracking-tight leading-tight">Zobacz <span class="text-primary font-headline font-extrabold">Huddle Up</span> w akcji!</h1>
-<p class="text-lg text-on-surface-variant font-body">Zostaw nam swój kontakt, a odezwiemy się, aby umówić 30-minutowe demo, podczas którego pokażemy ci, jak działa Huddle Up, i odpowiemy na wszystkie Twoje pytania.</p>
+<h1 class="text-4xl md:text-5xl font-display font-extrabold text-on-background mb-6 tracking-tight leading-tight">Zobacz <span class="text-primary font-headline font-extrabold">HuddleUp</span> w akcji!</h1>
+<p class="text-lg text-on-surface-variant font-body">Zostaw nam swój kontakt, a odezwiemy się, aby umówić 30-minutowe demo, podczas którego pokażemy Ci, jak działa HuddleUp, i odpowiemy na wszystkie Twoje pytania.</p>
 </div>
 <!-- Form Container -->
 <section id="join-us" class="w-full bg-surface-container-lowest rounded-[1.5rem] p-6 md:p-10 shadow-[0_40px_80px_-20px_rgba(46,46,51,0.06)] relative z-20 mb-12 overflow-hidden">
@@ -182,13 +182,14 @@
 <div class="pt-1">
 <input id="marketing_consent" name="marketing_consent" class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" required="" type="checkbox"/>
 </div>
-<span class="text-sm text-on-surface-variant leading-relaxed">Wyrażam zgodzę na otrzymywanie od Przemysława Popławskiego informacji marketingowych dotyczących produktów, usług oraz treści związanych z prowadzoną działalnością za pośrednictwem komunikacji elektronicznej lub telefonicznej (np. e-mail, social media lub numer telefonu).<span class="text-error">*</span></span>
+<span class="text-sm text-on-surface-variant leading-relaxed">Wyrażam zgodę na otrzymywanie od Przemysława Popławskiego informacji marketingowych dotyczących produktów, usług oraz treści związanych z prowadzoną działalnością za pośrednictwem komunikacji elektronicznej lub telefonicznej (np. e-mail, social media lub numer telefonu).<span class="text-error">*</span></span>
 </label>
 </div>
 <!-- Submit Button -->
 <div class="pt-8 flex justify-center">
 <button class="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold font-headline text-lg rounded-full hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_20px_40px_-10px_rgba(115,44,219,0.3)]" type="submit">Wyślij</button>
 </div>
+<p id="demoSuccessMessage" class="hidden rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-semibold text-green-800">Dziękujemy, wracamy do Ciebie w ciągu 24h !</p>
 </form>
 <script>
   (function() {
@@ -196,17 +197,32 @@
     const email = document.getElementById('email');
     const gdprCheckbox = document.getElementById('gdpr_consent');
     const marketingCheckbox = document.getElementById('marketing_consent');
+    const successMessage = document.getElementById('demoSuccessMessage');
     const errorClass = 'validation-error';
 
     function removeError(el) {
       if (el) el.classList.remove(errorClass);
     }
 
+    function hideSuccess() {
+      if (successMessage) {
+        successMessage.classList.add('hidden');
+      }
+    }
+
+    function showSuccess() {
+      if (successMessage) {
+        successMessage.classList.remove('hidden');
+      }
+    }
+
     [email, gdprCheckbox, marketingCheckbox].forEach(el => {
       if (!el) return;
       el.addEventListener('input', () => removeError(el));
+      el.addEventListener('input', hideSuccess);
       if (el.type === 'checkbox') {
         el.addEventListener('change', () => removeError(el));
+        el.addEventListener('change', hideSuccess);
       }
     });
 
@@ -237,7 +253,13 @@
       form.addEventListener('submit', function(event) {
         if (!validate()) {
           event.preventDefault();
+          return;
         }
+
+        event.preventDefault();
+        form.reset();
+        [email, gdprCheckbox, marketingCheckbox].forEach(removeError);
+        showSuccess();
       });
     }
   })();
