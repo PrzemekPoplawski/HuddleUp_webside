@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>Formularze HuddleUp</title>
+</head>
+<body>
+  <form name="instructorForm" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="instructorForm">
+    <input name="bot-field">
+    <input name="fullName">
+    <input name="email" type="email">
+    <textarea name="description"></textarea>
+    <input name="gdpr_consent" type="checkbox">
+    <input name="marketing_consent" type="checkbox">
+  </form>
+
+  <form name="demoForm" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="demoForm">
+    <input name="bot-field">
+    <input name="company_name">
+    <input name="email" type="email">
+    <input name="phone">
+    <select name="employees">
+      <option value="1-10">1-10</option>
+      <option value="11-50">11-50</option>
+      <option value="51-200">51-200</option>
+      <option value="201+">201+</option>
+    </select>
+    <input name="gdpr_consent" type="checkbox">
+    <input name="marketing_consent" type="checkbox">
+  </form>
+</body>
+</html>

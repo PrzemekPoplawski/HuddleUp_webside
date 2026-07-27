@@ -136,9 +136,11 @@
 <section id="join-us" class="w-full bg-surface-container-lowest rounded-[1.5rem] p-6 md:p-10 shadow-[0_40px_80px_-20px_rgba(46,46,51,0.06)] relative z-20 mb-12 overflow-hidden">
 <!-- Decorative blur -->
 <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-container opacity-30 rounded-full blur-3xl pointer-events-none"></div>
-<form id="demoForm" class="space-y-8 relative z-10" netlify novalidate>
-<input type="hidden" name="_to" value="przemyslawpoplawski.huddleup@gmail.com" />
+<form id="demoForm" name="demoForm" method="POST" class="space-y-8 relative z-10" data-netlify="true" netlify-honeypot="bot-field" novalidate>
 <input type="hidden" name="form-name" value="demoForm" />
+<p class="hidden" aria-hidden="true">
+<label>Nie wypełniaj tego pola: <input name="bot-field" tabindex="-1" autocomplete="off"/></label>
+</p>
 <!-- Input Fields Grid -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <!-- Company Name -->
@@ -187,9 +189,10 @@
 </div>
 <!-- Submit Button -->
 <div class="pt-8 flex justify-center">
-<button class="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold font-headline text-lg rounded-full hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_20px_40px_-10px_rgba(115,44,219,0.3)]" type="submit">Wyślij</button>
+<button class="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold font-headline text-lg rounded-full hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_20px_40px_-10px_rgba(115,44,219,0.3)] disabled:cursor-not-allowed disabled:opacity-60" type="submit">Wyślij</button>
 </div>
-<p id="demoSuccessMessage" class="hidden rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-semibold text-green-800">Dziękujemy, wracamy do Ciebie w ciągu 24h !</p>
+<p id="demoSuccessMessage" class="hidden rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-semibold text-green-800" role="status" aria-live="polite">Dziękujemy! Formularz został wysłany. Wrócimy do Ciebie w ciągu 24 godzin.</p>
+<p id="demoErrorMessage" class="hidden rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-800" role="alert">Nie udało się wysłać formularza. Spróbuj ponownie za chwilę.</p>
 </form>
 <script>
   (function() {
@@ -198,6 +201,8 @@
     const gdprCheckbox = document.getElementById('gdpr_consent');
     const marketingCheckbox = document.getElementById('marketing_consent');
     const successMessage = document.getElementById('demoSuccessMessage');
+    const errorMessage = document.getElementById('demoErrorMessage');
+    const submitButton = form ? form.querySelector('button[type="submit"]') : null;
     const errorClass = 'validation-error';
 
     function removeError(el) {
@@ -208,12 +213,27 @@
       if (successMessage) {
         successMessage.classList.add('hidden');
       }
+      if (errorMessage) {
+        errorMessage.classList.add('hidden');
+      }
     }
 
     function showSuccess() {
       if (successMessage) {
         successMessage.classList.remove('hidden');
       }
+    }
+
+    function showError() {
+      if (errorMessage) {
+        errorMessage.classList.remove('hidden');
+      }
+    }
+
+    function setSubmitting(isSubmitting) {
+      if (!submitButton) return;
+      submitButton.disabled = isSubmitting;
+      submitButton.textContent = isSubmitting ? 'Wysyłanie…' : 'Wyślij';
     }
 
     [email, gdprCheckbox, marketingCheckbox].forEach(el => {
@@ -250,16 +270,35 @@
     }
 
     if (form) {
-      form.addEventListener('submit', function(event) {
+      form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        hideSuccess();
+
         if (!validate()) {
-          event.preventDefault();
           return;
         }
 
-        event.preventDefault();
-        form.reset();
-        [email, gdprCheckbox, marketingCheckbox].forEach(removeError);
-        showSuccess();
+        setSubmitting(true);
+
+        try {
+          const response = await fetch('/forms.html', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: new URLSearchParams(new FormData(form)).toString()
+          });
+
+          if (!response.ok) {
+            throw new Error('Form submission failed');
+          }
+
+          form.reset();
+          [email, gdprCheckbox, marketingCheckbox].forEach(removeError);
+          showSuccess();
+        } catch (error) {
+          showError();
+        } finally {
+          setSubmitting(false);
+        }
       });
     }
   })();
