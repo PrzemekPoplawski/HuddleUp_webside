@@ -163,10 +163,10 @@
 <label class="block text-sm font-bold font-label text-on-surface-variant ml-1" for="employees">Liczba pracowników</label>
 <select class="w-full bg-surface-container-high border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary transition-shadow appearance-none" id="employees" name="employees">
 <option disabled="" selected="" value="">Wybierz przedział</option>
-<option value="1-10">1-10</option>
-<option value="11-50">11-50</option>
+<option value="do 50">do 50</option>
 <option value="51-200">51-200</option>
-<option value="201+">201+</option>
+<option value="201-1000">201-1000</option>
+<option value="1000+">1000+</option>
 </select>
 </div>
 </div>
@@ -182,9 +182,9 @@
 <!-- Marketing Consent -->
 <label class="flex items-start gap-4 cursor-pointer group">
 <div class="pt-1">
-<input id="marketing_consent" name="marketing_consent" class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" required="" type="checkbox"/>
+<input id="marketing_consent" name="marketing_consent" class="w-6 h-6 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-low group-hover:bg-surface-container-high transition-colors" type="checkbox"/>
 </div>
-<span class="text-sm text-on-surface-variant leading-relaxed">Wyrażam zgodę na otrzymywanie od Przemysława Popławskiego informacji marketingowych dotyczących produktów, usług oraz treści związanych z prowadzoną działalnością za pośrednictwem komunikacji elektronicznej lub telefonicznej (np. e-mail, social media lub numer telefonu).<span class="text-error">*</span></span>
+<span class="text-sm text-on-surface-variant leading-relaxed">Wyrażam zgodę na otrzymywanie od Przemysława Popławskiego informacji marketingowych dotyczących produktów, usług oraz treści związanych z prowadzoną działalnością za pośrednictwem komunikacji elektronicznej lub telefonicznej (np. e-mail, social media lub numer telefonu). <span class="text-on-surface-variant/70">(opcjonalnie)</span></span>
 </label>
 </div>
 <!-- Submit Button -->
@@ -254,10 +254,6 @@
       }
       if (!gdprCheckbox.checked) {
         gdprCheckbox.classList.add(errorClass);
-        valid = false;
-      }
-      if (!marketingCheckbox.checked) {
-        marketingCheckbox.classList.add(errorClass);
         valid = false;
       }
       if (!valid) {
